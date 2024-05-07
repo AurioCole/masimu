@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
@@ -13,7 +11,7 @@ class TopBar extends StatelessWidget {
         Container(
           width: 20,
           height: 5,
-          color: const Color(0xff639655).withOpacity(0.8)
+          color: const Color(0xFF39B54A).withOpacity(0.8)
         ),
         Container(
           width: 40,

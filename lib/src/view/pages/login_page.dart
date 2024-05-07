@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:masimu_app/src/view/components/button.dart';
-import 'package:masimu_app/src/view/components/passwordTextField.dart';
-import 'package:masimu_app/src/view/components/textForm.dart';
-import 'package:masimu_app/src/view/components/topBar.dart';
+import 'package:masimu_app/src/view/components/password_textfield.dart';
+import 'package:masimu_app/src/view/components/text_form.dart';
+import 'package:masimu_app/src/view/components/top_bar.dart';
+import 'package:masimu_app/src/viewModel/login_viewmodel.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,7 +14,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  final auth = LoginViewModel();
+
   bool? isChecked = false;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    auth.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +54,12 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Icon(
                 Icons.arrow_back_ios,
-                color: Colors.black54
+                color: Color(0xff3D3D3D)
               ),
               Text(
                 "Entrar", 
                 style: TextStyle(
-                  color: Colors.black54,
+                  color: Color(0xff3D3D3D),
                   fontWeight: FontWeight.w600
                 ),
               ),
@@ -56,23 +79,23 @@ class _LoginPageState extends State<LoginPage> {
                 opacity: 0.9,
                 child:Image(
                   image: AssetImage(
-                    "lib/assets/images/main-logo.png"
+                    "lib/assets/images/LogoUpdated.png"
                   ),
-                  width: 78, 
+                  width: 100, 
                   height: 100,
                 ),
               ),
               const SizedBox(height: 20),
-              const TextForm(hintText: "Email"),
-              const PasswordTextField(hintText: "Senha"),
+              TextForm(hintText: "Email", controller: emailController),
+              PasswordTextField(hintText: "Senha", controller: passwordController),
               Row(
                 children: <Widget> [
                   Checkbox(
                     side: const BorderSide(
-                      color: Colors.black45,
+                      color: Color(0xff3D3D3D),
                       width: 1.5
                     ),
-                    activeColor: const Color(0xff639655),
+                    activeColor: const Color(0xFF39B54A),
                     value: isChecked, 
                     onChanged: (newvalue){
                       setState(() {
@@ -83,26 +106,29 @@ class _LoginPageState extends State<LoginPage> {
                   const Text(
                     "Lembrar-me",
                     style: TextStyle(
-                      color: Colors.black54,
+                      color: Color(0xff3D3D3D),
                       fontWeight: FontWeight.w400
                     ),
                   )
                 ],
               ),
               const SizedBox(height: 20),
-              const Button(text: "Entrar"),
+              Button(
+                text: "Entrar",
+                onPressed: () {
+                  auth.signIn(context, emailController.text, passwordController.text);
+                },
+              ),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   TextButton(
-                    onPressed: (){
-                      Navigator.of(context).pushReplacementNamed("/signup");
-                    },
+                    onPressed: () => context.pushReplacement("/signup"),
                     child: const Text(
                       "Criar Conta",
                       style: TextStyle(
-                        color: Color(0xff639655),
+                        color: Color(0xFF39B54A),
                         fontSize: 15,
                       ),
                     )
@@ -112,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Text(
                       "Esqueceu a Senha?",
                       style: TextStyle(
-                        color: Color(0xff639655),
+                        color: Color(0xFF39B54A),
                         fontSize: 15,
                       ),
                     )
@@ -121,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
               )              
             ],
           )
-        ),
+        )
       ),
     );
   }

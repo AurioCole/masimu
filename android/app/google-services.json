@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "293653603761",
-    "project_id": "masimuapp",
-    "storage_bucket": "masimuapp.appspot.com"
+    "project_number": "839271889677",
+    "project_id": "masimu-215d8",
+    "storage_bucket": "masimu-215d8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:293653603761:android:d6f6ffbf79d6cb8aca8990",
+        "mobilesdk_app_id": "1:839271889677:android:c66f561f754ecc86688e44",
         "android_client_info": {
           "package_name": "com.example.masimu_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCY9PvVF9Edbu6iyJDJTa9hXBmzApFe8VI"
+          "current_key": "AIzaSyAIqTpe3Z4q2ojRVv7dG9c4oKKgWFXJTrQ"
         }
       ],
       "services": {
