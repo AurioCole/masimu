@@ -1,6 +1,6 @@
 # masimu_app
 
-A new Flutter project.
+This is a Flutter Ecommerce App with Firebase Services
 
 ## Getting Started
 
