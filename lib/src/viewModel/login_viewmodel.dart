@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:masimu_app/src/service/firebase_service.dart';
+import 'package:masimu_app/service/firebase_service.dart';
 
 class LoginViewModel extends ChangeNotifier{
   

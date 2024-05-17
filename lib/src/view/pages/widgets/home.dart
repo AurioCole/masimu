@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:masimu_app/src/view/components/card.dart';
 import 'package:masimu_app/src/view/components/circle_item.dart';
 import 'package:masimu_app/src/view/components/search_bar.dart';
 
@@ -11,6 +10,7 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -31,7 +31,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           fontWeight: FontWeight.bold
                         ),
                       ),
-                      onPressed: (){},
+                      onPressed: () {},
                     ),
                     TextButton(
                       child: const Text(
@@ -194,9 +194,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: <Widget>[
-                    CardItem(),
-                    CardItem(),
-                    CardItem()
+
                   ],
                 ),
               )

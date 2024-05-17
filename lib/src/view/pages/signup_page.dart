@@ -1,12 +1,11 @@
-// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:masimu_app/src/service/firebase_service.dart';
 import 'package:masimu_app/src/view/components/button.dart';
 import 'package:masimu_app/src/view/components/password_textfield.dart';
 import 'package:masimu_app/src/view/components/text_form.dart';
 import 'package:masimu_app/src/view/components/top_bar.dart';
+import 'package:masimu_app/src/viewModel/signup_viewmodel.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -15,13 +14,22 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
+
 class _SignUpPageState extends State<SignUpPage> {
   bool? isChecked = false;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final FirebaseAuthService auth = FirebaseAuthService();
+  final auth = SignUpViewModel();
+
+  @override
+  void initState() {
+    super.initState();
+    auth.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   void dispose() {
